@@ -1,4 +1,4 @@
-const Task = require('../models/task'); // Path corrected to lowercase
+const Task = require('../models/task'); 
 
 exports.getTasks = async (req, res) => {
     try {
@@ -13,7 +13,7 @@ exports.createTask = async (req, res) => {
     try {
         const { title, description, dueDate, category } = req.body;
 
-        // Validate task title
+   
         if (!title || title.trim() === "") {
             return res.status(400).json({ message: 'Task title is required and cannot be empty.' });
         }
@@ -31,7 +31,7 @@ exports.updateTask = async (req, res) => {
         const { id } = req.params;
         const updates = req.body;
 
-        // Validate task title if being updated
+      
         if (updates.title && updates.title.trim() === "") {
             return res.status(400).json({ message: 'Task title cannot be empty.' });
         }
